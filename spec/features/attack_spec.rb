@@ -14,7 +14,7 @@ feature 'Attack' do
   # I want my attack to reduce Player 2's HP
   scenario 'attacking reduces HP' do
     sign_in_and_play
-    click_button('Attack')
+    2.times {click_button('Attack')}
     expect(page).to have_content('Michael HP: 80')
   end
 end

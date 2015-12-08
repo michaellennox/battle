@@ -21,10 +21,19 @@ class Battle < Sinatra::Base
     erb :play
   end
 
-  post '/attack' do
+  post '/attack2' do
     session[:last_action] = :attack
     @game = $game
     @game.attack2
+    @game.switch_turn
+    redirect '/play'
+  end
+
+  post '/attack1' do
+    session[:last_action] = :attack
+    @game = $game
+    @game.attack1
+    @game.switch_turn
     redirect '/play'
   end
 

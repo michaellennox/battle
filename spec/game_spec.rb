@@ -6,6 +6,18 @@ describe Game do
   let(:player1) { double(:player, name: "Michael", hp: 100) }
   let(:player2) { double(:player, name: "Ed", hp: 98) }
 
+  describe '#player1' do
+    it 'should return player 1' do
+      expect(game.player1).to eq player1
+    end
+  end
+
+  describe '#player2' do
+    it 'should return player 2' do
+      expect(game.player2).to eq player2
+    end
+  end
+
   describe '#attack1' do
     it 'should call attacked on a player1' do
       expect(player1).to receive(:attacked)
@@ -41,6 +53,19 @@ describe Game do
   describe '#hp2' do
     it 'should return player2\'s current HP' do
       expect(game.hp2).to eq 98
+    end
+  end
+
+  describe '#active_player' do
+    it 'should return the active player' do
+      expect(game.active_player).to eq player1
+    end
+  end
+
+  describe '#switch_turn' do
+    it 'should switch active player on turn end' do
+      game.switch_turn
+      expect(game.active_player).to eq player2
     end
   end
 
