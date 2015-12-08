@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
 
@@ -10,6 +11,7 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
+    $game = Game.new
     $player_1 = Player.new(params[:player_1_name])
     $player_2 = Player.new(params[:player_2_name])
     redirect '/play'
@@ -25,7 +27,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     session[:last_action] = :attack
-    $player_2.attacked
+    $game.attack($player_2)
     redirect '/play'
   end
 
