@@ -25,6 +25,7 @@ class Battle < Sinatra::Base
     session[:last_action] = :attack
     @game = $game
     @game.attack2
+    redirect '/game_over' if @game.hp2 <= 0
     @game.switch_turn
     redirect '/play'
   end
@@ -33,8 +34,15 @@ class Battle < Sinatra::Base
     session[:last_action] = :attack
     @game = $game
     @game.attack1
+    redirect '/game_over' if @game.hp1 <= 0
     @game.switch_turn
     redirect '/play'
+  end
+
+  get '/game_over' do
+    @game = $game
+    @victor = @game.active_player
+    erb :game_over
   end
 
   # start the server if ruby file executed directly

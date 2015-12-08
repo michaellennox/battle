@@ -18,4 +18,14 @@ feature 'Hit points' do
     expect(page).to have_content 'Ed HP: 100'
   end
 
+  # As a Player,
+  # So I can Lose a game of Battle,
+  # I want to see a 'Lose' message if I reach 0HP first
+  scenario 'hit points reach 0' do
+    sign_in_and_play
+    9.times{click_button('Attack')}
+    expect(page).to have_content 'Victory Ed!'
+  end
+
+
 end
