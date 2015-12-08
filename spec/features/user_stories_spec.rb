@@ -8,10 +8,13 @@ describe 'user stories' do
     visit 'http://localhost:9393/'
   end
 
-  it 'takes users name' do
-    fill_in('name', with: 'tony')
-    fill_in('name2', with: 'john')
-    find_button('FIGHT').click
-    expect(page).to have_content('tony VS john')
+  feature 'enter names' do
+    scenario 'takes users name' do
+      fill_in('name', with: 'tony')
+      fill_in('name2', with: 'john')
+      click_button('FIGHT').click
+      expect(page).to have_content('tony VS john')
+    end
   end
+
 end
