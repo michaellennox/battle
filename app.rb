@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
   post '/attack' do
     session[:last_action] = :attack
     @game = $game
-    @game.attack_player2
+    @game.attack2
     redirect '/play'
   end
 

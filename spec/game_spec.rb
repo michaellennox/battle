@@ -6,53 +6,41 @@ describe Game do
   let(:player1) { double(:player, name: "Michael", hp: 100) }
   let(:player2) { double(:player, name: "Ed", hp: 98) }
 
-  describe '#attack_player1' do
+  describe '#attack1' do
     it 'should call attacked on a player1' do
       expect(player1).to receive(:attacked)
-      game.attack_player1
+      game.attack1
     end
   end
 
-  describe '#attack_player2' do
+  describe '#attack2' do
     it 'should call attacked on a player2' do
       expect(player2).to receive(:attacked)
-      game.attack_player2
+      game.attack2
     end
   end
 
-  describe '#player1' do
-    it 'should return player1' do
-      expect(game.player1).to eq(player1)
-    end
-  end
-
-  describe '#player2' do
-    it 'should return player2' do
-      expect(game.player2).to eq(player2)
-    end
-  end
-
-  describe '#player1_name' do
+  describe '#name1' do
     it 'should return the name of player1' do
-      expect(game.player1_name).to eq("Michael")
+      expect(game.name1).to eq("Michael")
     end
   end
 
-  describe '#player2_name' do
+  describe '#name2' do
     it 'should return the name of player2' do
-      expect(game.player2_name).to eq("Ed")
+      expect(game.name2).to eq("Ed")
     end
   end
 
-  describe '#player1_hp' do
+  describe '#hp1' do
     it 'should return player1\'s current HP' do
-      expect(game.player1_hp).to eq 100
+      expect(game.hp1).to eq 100
     end
   end
 
-  describe '#player2_hp' do
+  describe '#hp2' do
     it 'should return player2\'s current HP' do
-      expect(game.player2_hp).to eq 98
+      expect(game.hp2).to eq 98
     end
   end
 

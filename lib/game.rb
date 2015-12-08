@@ -1,34 +1,20 @@
-class Game
+require 'forwardable'
 
-  attr_reader :player1, :player2
+class Game
+  extend Forwardable
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
   end
 
-  def attack_player1
-    player1.attacked
-  end
+  def_delegator :@player1, :attacked, :attack1
+  def_delegator :@player2, :attacked, :attack2
 
-  def attack_player2
-    player2.attacked
-  end
+  def_delegator :@player1, :name, :name1
+  def_delegator :@player2, :name, :name2
 
-  def player1_name
-    player1.name
-  end
-
-  def player2_name
-    player2.name
-  end
-
-  def player1_hp
-    player1.hp
-  end
-
-  def player2_hp
-    player2.hp
-  end
+  def_delegator :@player1, :hp, :hp1
+  def_delegator :@player2, :hp, :hp2
 
 end
