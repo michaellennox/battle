@@ -1,4 +1,4 @@
 require 'rubygems'
-require File.join(File.dirname(__FILE__), 'batlle/app.rb')
+require File.join(File.dirname(__FILE__), 'app.rb')
 
-run MyApp
+run Battle
