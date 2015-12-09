@@ -1,5 +1,9 @@
-<%= @game.player_name(Player1).capitalize %> attacked <%= @game.player_name(Player2).capitalize %>
- <!-- <%= @player2attack % -->
+
+<% if @game.current == Player2 %>
+  <%= @game.player_name(Player1).capitalize %> attacked <%= @game.player_name(Player2).capitalize %>
+<% else %>
+  <%= @game.player_name(Player2).capitalize %> attacked <%= @game.player_name(Player1).capitalize %>
+<% end %>
 
 <div>
   <form action='/play'>

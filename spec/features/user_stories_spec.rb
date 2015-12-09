@@ -37,5 +37,21 @@ describe 'user stories' do
     end
   end
 
+  scenario 'strikes other player' do
+    sign_in_and_play
+    click_button('Attack')
+    click_button('Back to fight')
+    click_button('Attack')
+    expect(page).to have_content('John attacked Tony')
+  end
+
+  feature 'switch players' do
+    scenario 'changes player turns' do
+      sign_in_and_play
+      click_button('Attack')
+      click_button('Back to fight')
+      expect(page).to have_content('John\'s turn')
+    end
+  end
 
 end

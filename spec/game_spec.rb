@@ -25,4 +25,7 @@ describe Game do
       expect(game.player_health(player1)).to eq 60
     end
 
+    it 'should give the current player' do
+      expect(game.current).to eq player1
+    end
 end

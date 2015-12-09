@@ -13,3 +13,9 @@ VS
   <input type="submit" value="Attack">
   </form>
 <div>
+
+<% if @game.current == Player2 %>
+  <%= @game.player_name(Player2).capitalize %>'s turn
+<% else %>
+  <%= @game.player_name(Player1).capitalize %>'s turn
+<% end %>
