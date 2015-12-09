@@ -17,14 +17,18 @@ class Battle < Sinatra::Base
   get '/play' do
     @player1 = $Player1.name
     @player2 = $Player2.name
-    @player1hp = 60
-    @player2hp = 60
+    @player1hp = $Player1.hp
+    @player2hp = $Player2.hp
+    #@player1attack = $Player1.attack
+    #@player2attack = $Player2.attack
+
     erb :play
   end
 
   get '/attack' do
-    @player1 = $Player1.name
-    @player2 = $Player2.name
+    @player1 = $Player1
+    @player2 = $Player2
+    @player1.attack(@player2)
     erb :attack
   end
 

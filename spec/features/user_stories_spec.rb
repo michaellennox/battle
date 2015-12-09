@@ -21,6 +21,12 @@ describe 'user stories' do
       expect(page).to have_content('60/60 HP')
     end
 
+    scenario 'attack reduces HP' do
+      sign_in_and_play
+      click_button('Attack')
+      click_button('Back to fight')
+      expect(page).to have_content('50/60 HP')
+    end
   end
 
   feature 'attacks' do
@@ -30,5 +36,6 @@ describe 'user stories' do
       expect(page).to have_content('Tony attacked John')
     end
   end
+
 
 end
