@@ -1,5 +1,18 @@
 <h1>Battle Arena!</h1>
 
-<%=@player_1%> vs. <%=@player_2%>
+It's <%= @game.turn.name %>'s turn!
 
-<%=@player_2%> HP: 100
+<br>
+<br>
+
+<%=@game.p1_name%> HP: <%=@game.p1_hp%><br>
+<br>
+vs.<br>
+<br> <%=@game.p2_name%> HP: <%=@game.p2_hp%>
+
+<br>
+<br>
+
+<form action="/attack" method="post">
+  <input type="submit" value="Attack!"/>
+</form>

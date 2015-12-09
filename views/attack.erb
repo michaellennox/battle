@@ -1,0 +1,16 @@
+<%=@game.other_turn.name%> attacked <%=@game.turn.name%> for <%= @turn_damage %>
+
+<br>
+<br>
+
+"Critical Hit!"
+
+<br>
+<br>
+<% if @game.turn.hp > 0 %>
+<form action='/play'>
+  <input type="submit" value="OK"/>
+</form>
+<% else %>
+<%= @game.turn.name.upcase %> HAS FAINTED
+<% end %>
