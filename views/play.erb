@@ -1,1 +1,15 @@
-<%= @player1 %> VS <%= @player2 %>
+<div>
+  <%= @player1.capitalize %>
+  <%= @player1hp %>/60 HP
+</div>
+VS
+<div>
+  <%= @player2.capitalize %>
+  <%= @player2hp %>/60 HP
+</div>
+
+<div>
+  <form action='/attack'>
+  <input type="submit" value="Attack">
+  </form>
+<div>
