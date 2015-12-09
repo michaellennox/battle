@@ -3,7 +3,7 @@ require 'game'
 describe Game do
 
   subject(:game) { described_class.new(player1, player2) }
-  let(:player1) { double :player1 }
+  let(:player1) { double :player1, name: 'Ed', hp: 60}
   let(:player2) { double :player2, receive_damage: nil }
 
   describe '#attck' do
@@ -16,5 +16,13 @@ describe Game do
       game.attack(player2)
     end
   end
+
+    it 'should give the player name' do
+      expect(game.player_name(player1)).to eq 'Ed'
+    end
+
+    it 'should give player HP' do
+      expect(game.player_health(player1)).to eq 60
+    end
 
 end

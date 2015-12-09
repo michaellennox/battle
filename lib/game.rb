@@ -11,5 +11,12 @@ class Game
     player.receive_damage
   end
 
+  def player_name(player)
+    player.name
+  end
+
+  def player_health(player)
+    player.hp
+  end
 
 end
