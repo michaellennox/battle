@@ -1,21 +1,53 @@
-<div>
-  <%= @game.player_name(Player1).capitalize %>
-  <%= @game.player_health(Player1) %>/60 HP
-</div>
-VS
-<div>
-  <%= @game.player_name(Player2).capitalize %>
-  <%= @game.player_health(Player2) %>/60 HP
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Battle</title>
+  <link href="/css/main.css" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <div class="player" id="player1">
+      <div>
+        <h3><%= @game.player_name(Player1).capitalize %></h3>
+        <div class="meter">
+          <span style="width: <%=@game.player1.hp_as_percent%>%"></span>
+        </div>
+        <h4 class="hp"><%= @game.player_health(Player1) %>/60 HP</h4>
+      </div>
+      <div class="avatar"></div>
+    </div>
+    <div class="player" id="player2">
+      <div>
+        <h3><%= @game.player_name(Player2).capitalize %></h3>
+        <div class="meter">
+          <span style="width: <%=@game.player2.hp_as_percent%>%"></span>
+        </div>
+        <h4 class="hp"><%= @game.player_health(Player2) %>/60 HP</h4>
+      </div>
+      <div class="avatar"></div>
+    </div>
 
-<div>
-  <form action='/attack'>
-  <input type="submit" value="Attack">
-  </form>
-<div>
+    <div id="attack">
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+      <form class="move" action='/attack'><input type="submit" value="ATTACK"></form>
+    </div>
+    <div id="switch">
+      <h4 id="turn">
+        <% if @game.current == Player2 %>
+          <%= @game.player_name(Player2).capitalize %>'s turn
+        <% else %>
+          <%= @game.player_name(Player1).capitalize %>'s turn
+        <% end %>
+      </h4>
+    </div>
+    <div id="vs">
 
-<% if @game.current == Player2 %>
-  <%= @game.player_name(Player2).capitalize %>'s turn
-<% else %>
-  <%= @game.player_name(Player1).capitalize %>'s turn
-<% end %>
+    </div>
+  </main>
+</body>
+<html>

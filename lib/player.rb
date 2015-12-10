@@ -15,4 +15,8 @@ class Player
     @hp -= 10
   end
 
+  def hp_as_percent
+    (@hp / 60.0) * 100
+  end
+
 end
