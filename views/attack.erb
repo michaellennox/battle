@@ -5,8 +5,17 @@
   <%= @game.player_name(Player2).capitalize %> attacked <%= @game.player_name(Player1).capitalize %>
 <% end %>
 
+
+<% if @game.player_health(Player1) <= 0 || @game.player_health(Player2) <= 0 %>
+<div>
+  <form action='/game_over'>
+  <input type="submit" value="Back to fight">
+  </form>
+</div>
+<% else %>
 <div>
   <form action='/play'>
   <input type="submit" value="Back to fight">
   </form>
-<div>
+</div>
+<% end %>

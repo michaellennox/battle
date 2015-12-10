@@ -5,3 +5,8 @@ def sign_in_and_play
   fill_in('name2', with: 'john')
   click_button('FIGHT')
 end
+
+def attack_and_return
+  click_button('Attack')
+  click_button('Back to fight')
+end

@@ -23,8 +23,7 @@ describe 'user stories' do
 
     scenario 'attack reduces HP' do
       sign_in_and_play
-      click_button('Attack')
-      click_button('Back to fight')
+      attack_and_return
       expect(page).to have_content('50/60 HP')
     end
   end
@@ -37,21 +36,28 @@ describe 'user stories' do
     end
   end
 
-  scenario 'strikes other player' do
-    sign_in_and_play
-    click_button('Attack')
-    click_button('Back to fight')
-    click_button('Attack')
-    expect(page).to have_content('John attacked Tony')
-  end
+    scenario 'strikes other player' do
+      sign_in_and_play
+      attack_and_return
+      click_button('Attack')
+      expect(page).to have_content('John attacked Tony')
+    end
 
   feature 'switch players' do
     scenario 'changes player turns' do
       sign_in_and_play
-      click_button('Attack')
-      click_button('Back to fight')
+      attack_and_return
       expect(page).to have_content('John\'s turn')
     end
   end
 
+  feature 'game over' do
+    scenario 'shows when a player wins/loses' do
+      sign_in_and_play
+      11.times do
+        attack_and_return
+      end
+      expect(page).to have_content('Tony beat John')
+    end
+  end
 end
